@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    @apply max-w-[90rem] p-5 w-full mx-auto
+}
+
+@layer components {
+
+    .header_wrapper {
+        @apply border-b-dark border-b md:flex md:justify-between md:items-center
+    }
+
+    .header_wrapper img {
+        @apply max-w-[12.5rem] 
+    }
+
+    .header_icons ul {
+        @apply flex justify-center
+    }
+
+    .header_icons btn {
+        @apply px-[2rem]
+    }
+
+    .burger_menu span{
+        @apply bg-dark w-[2.5rem] h-[0.3rem] block my-1 md:hidden
+    }
+
+    .header_nav ul {
+        @apply flex justify-between uppercase
+    }
+
+    .header_nav ul li {
+        @apply md:my-[1.25rem] md:w-full md:border-r-2 md:border-[#d1d5db]
+    }
+
+    .header_nav ul li:last-child {
+        @apply md:border-none
+    }
+
+
+    .header_nav a {
+        @apply md:p-[0.5rem] md:block md:text-center
+    }
+
+    /* FAQ */
+
+    .faq_wrapper {
+        @apply flex flex-col gap-3
+    }
+
+    .faq_wrapper h2{
+        @apply text-2xl font-medium mb-10
+    }
+
+    .faq_content {
+        @apply md:flex md:flex-row md:justify-center
+    }
+
+    .faq_card {
+        @apply py-3 px-3 bg-contentBg relative
+    }
+
+    .faq_card h3 {
+        @apply text-base font-medium
+    }
+
+    .faq_card p {
+        @apply text-justify mb-[0.7rem] m-0 text-[1rem] font-normal leading-9
+    }
+
+    .faq_card .fa-chevron-right {
+        @apply transform rotate-[90deg] absolute top-2 right-4 text-xl
+    }
+
+    .faq_card .fa-circle {
+        @apply text-secondary mr-3
+    }
+
+    .faq_card ul {
+        @apply text-justify m-0 text-[1rem] font-normal leading-9 my-[2rem] ml-[2rem] overflow-hidden
+    }
+
+    /* FOOTER */
+
+    .footer_info {
+        @apply grid grid-cols-1 gap-2 border-b-2 border-b-gray-500 md:grid-cols-3 
+    }
+
+    .footer_logo {
+        @apply mx-auto md:ml-0
+    }
+
+    .footer_logo img {
+        @apply max-w-[12.5rem] 
+    }
+
+    .footer_details {
+        @apply hidden md:flex md:justify-center md:gap-10
+    }
+
+    .footer_details li a {
+        @apply text-[1.1rem] font-light
+    }
+
+    .footer_btn {
+        @apply flex flex-col items-center gap-2 mb-10 text-lg md:items-end
+    }
+    .footer_btn a:last-child {
+        @apply border-[1px] border-secondary px-[4.9rem]
+    }
+
+    .footer_icon {
+        @apply flex flex-col justify-center gap-2 md:flex-row md:justify-between
+    }
+
+    .footer_icon ul {
+        @apply flex justify-center gap-7
+    }
+
+}
+
+@layer utilities {
+    .btn {
+        @apply inline-block rounded-md border-transparent border-[1px] 
+        text-lg font-normal py-[0.4rem] px-[5.2rem];
+    }
+
+    .btn.bg--light {
+        @apply border-light 
+    }
+
+
+}
