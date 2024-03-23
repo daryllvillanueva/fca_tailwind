@@ -9,27 +9,67 @@
 @layer components {
 
     .header_wrapper {
-        @apply border-b-dark border-b md:flex md:justify-between md:items-center
+        @apply border-dark border-b flex flex-row justify-between items-center
     }
 
     .header_wrapper img {
         @apply max-w-[12.5rem] 
     }
 
-    .header_icons ul {
-        @apply flex justify-center
+    .header_icons {
+        @apply hidden md:block;
     }
 
-    .header_icons btn {
-        @apply px-[2rem]
+    .header_icons ul {
+        @apply flex justify-center gap-1 items-center
+    }
+
+    .header_icons ul li {
+        @apply mx-1
+    }
+
+    .header_icons ul li i {
+        @apply mr-1
+    }
+
+    .header_icons ul li a:last-child {
+        @apply border-dark border-[1px]
+    }
+
+    .burger_menu {
+        @apply md:hidden md:z-50 transition-all
     }
 
     .burger_menu span{
-        @apply bg-dark w-[2.5rem] h-[0.3rem] block my-1 md:hidden
+        @apply bg-dark w-[2.5rem] h-[0.3rem] block my-1
+    }
+
+    .burger_menu.open span {
+        @apply rotate-180 duration-200 transition-all rounded-full
+    }
+
+    .burger_menu.open span:first-child {
+        @apply w-[1.7rem] h-[0.3rem] translate-x-[0.88rem] -translate-y-[-2.2px] rotate-[30deg] duration-300 transition-all
+    }
+
+    .burger_menu.open span:last-child {
+        @apply w-[1.7rem] h-[0.3rem] translate-x-[0.88rem] -translate-y-[2.2px] rotate-[-30deg] duration-300 transition-all
+     }
+
+    .header_nav {
+        @apply hidden absolute top-[130px] z-10 bg-white h-screen w-full ease-in-out duration-500 transition-all md:h-auto right-[100%] md:right-0 md:static md:block overflow-hidden
+    }
+
+    .header_nav.open {
+        @apply right-0 flex flex-col gap-5
     }
 
     .header_nav ul {
-        @apply flex justify-between uppercase
+        @apply flex justify-between flex-col items-center gap-4 md:flex md:flex-row
+    }
+
+    .header_nav ul:last-child {
+        @apply md:hidden
     }
 
     .header_nav ul li {
@@ -40,47 +80,80 @@
         @apply md:border-none
     }
 
-
     .header_nav a {
         @apply md:p-[0.5rem] md:block md:text-center
     }
 
     /* FAQ */
 
-    .faq_wrapper {
-        @apply flex flex-col gap-3
+    .faq_wrapper h4{
+        @apply text-4xl font-thin text-center mx-auto m-9 p-[2rem] md:text-[5rem]
     }
 
-    .faq_wrapper h2{
-        @apply text-2xl font-medium mb-10
+    .fca_main{
+        @apply md:grid grid-cols-[_1fr,_2fr] 
     }
 
-    .faq_content {
-        @apply md:flex md:flex-row md:justify-center
+    .fca_nav{
+        @apply md:mt-[7rem] 
+    }
+    .fca_nav ul li{
+        @apply text-xl font-thin text-gray-500 text-center p-2 md:text-left
+    }
+    .fca_nav ul li.active{
+        @apply underline text-secondary
     }
 
-    .faq_card {
-        @apply py-3 px-3 bg-contentBg relative
+    .fca_card{
+        @apply top-[5rem] p-3 w-fit h-full mt-[5rem] text-justify
     }
 
-    .faq_card h3 {
-        @apply text-base font-medium
+    .coffee_item{
+        @apply hidden opacity-0 transition-all top-0
+         md:items-center md:w-[63rem] md:left-[25%] 
+    }
+    .coffee_item.active{
+        @apply block opacity-100 transition-all z-50 
+    }
+    
+    .coffee_item h2{
+        @apply text-2xl font-light pb-8
     }
 
-    .faq_card p {
-        @apply text-justify mb-[0.7rem] m-0 text-[1rem] font-normal leading-9
+    .coffee_text p{
+        @apply opacity-75
+    }
+    .coffee_text{
+        @apply bg-gray-100 mb-8 p-4
     }
 
-    .faq_card .fa-chevron-right {
-        @apply transform rotate-[90deg] absolute top-2 right-4 text-xl
+    .coffee_text h5 i.open{
+        @apply  transform rotate-180 w-fit h-fit transition-all 
+        md:transform md:rotate-180  md:transition-all
+    }
+    .coffee_item .coffee_text:not(:first-child) .contents.open{
+        @apply max-h-[50rem] transition-all pt-6
+    }
+    .fca_card .coffee_text:not(:first-child) .contents{
+        @apply max-h-[0rem] overflow-hidden transition-all
+        flex flex-col gap-6 
+    }
+    
+    .question{
+        @apply relative
+    }
+    .question h5{
+        @apply text-lg font-normal pr-5 w-[90%]
+    }
+    .question h5 i{
+        @apply absolute md:mx-auto top-3 right-5
+    }
+    .question h5 span{
+        @apply mr-2
     }
 
-    .faq_card .fa-circle {
-        @apply text-secondary mr-3
-    }
-
-    .faq_card ul {
-        @apply text-justify m-0 text-[1rem] font-normal leading-9 my-[2rem] ml-[2rem] overflow-hidden
+    .contents p{
+        @apply text-lg md:p-3 
     }
 
     /* FOOTER */
@@ -123,6 +196,12 @@
 }
 
 @layer utilities {
+
+    .navbtn {
+        @apply inline-block rounded-md border-transparent border-[1px] 
+        text-base font-normal py-[0.4rem] px-[1.5rem];
+    }
+
     .btn {
         @apply inline-block rounded-md border-transparent border-[1px] 
         text-lg font-normal py-[0.4rem] px-[5.2rem];
